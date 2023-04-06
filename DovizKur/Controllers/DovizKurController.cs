@@ -56,8 +56,8 @@ namespace DovizKur.Controllers
         public async Task<IActionResult> Index()
         {
             var exchangeRates = await GetExchangeRatesAsync();
-
-            return View(exchangeRates);
+            var ex= exchangeRates.OrderByDescending(p=>p.date).ToList();
+            return View(ex);
         }
         public async Task<IActionResult> DovizKurEnYuksek()
         {

@@ -29,7 +29,9 @@ namespace DovizKurApiUygulama.Controllers
         [HttpGet]
         public async Task<IActionResult> GetExchangeRates()
         {
-            string url = "https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A-TP.DK.EUR.A-TP.DK.CHF.A-TP.DK.GBP.A-TP.DK.JPY.A&startDate=03-02-2023&endDate=05-03-2023&type=xml&key=IGWa5JleON";
+            var endDate = DateTime.Now.Date.ToString("dd-MM-yyyy");
+            var startDate = DateTime.Now.Date.AddDays(-30).ToString("dd-MM-yyyy");
+            string url = $"https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.S.YTL-TP.DK.EUR.S.YTL-TP.DK.CHF.S.YTL-TP.DK.GBP.S.YTL-TP.DK.JPY.S.YTL&startDate={startDate}&endDate={endDate}&type=xml&key=IGWa5JleON";
             HttpResponseMessage response = await _httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
@@ -41,11 +43,11 @@ namespace DovizKurApiUygulama.Controllers
                 var exchangeRates = doc.Descendants("items").Select(item => new
                 {
                     date = item.Element("Tarih").Value,
-                    usd = string.IsNullOrEmpty(item.Element("TP_DK_USD_A").Value) ? "0" : item.Element("TP_DK_USD_A").Value,
-                    eur = string.IsNullOrEmpty(item.Element("TP_DK_EUR_A").Value) ? "0" : item.Element("TP_DK_EUR_A").Value,
-                    chf = string.IsNullOrEmpty(item.Element("TP_DK_CHF_A").Value) ? "0" : item.Element("TP_DK_CHF_A").Value,
-                    gbp = string.IsNullOrEmpty(item.Element("TP_DK_CHF_A").Value) ? "0" : item.Element("TP_DK_GBP_A").Value,
-                    jpy = string.IsNullOrEmpty(item.Element("TP_DK_CHF_A").Value) ? "0" : item.Element("TP_DK_JPY_A").Value,
+                    usd = string.IsNullOrEmpty(item.Element("TP_DK_USD_S_YTL").Value) ? "0" : item.Element("TP_DK_USD_S_YTL").Value,
+                    eur = string.IsNullOrEmpty(item.Element("TP_DK_EUR_S_YTL").Value) ? "0" : item.Element("TP_DK_EUR_S_YTL").Value,
+                    chf = string.IsNullOrEmpty(item.Element("TP_DK_CHF_S_YTL").Value) ? "0" : item.Element("TP_DK_CHF_S_YTL").Value,
+                    gbp = string.IsNullOrEmpty(item.Element("TP_DK_CHF_S_YTL").Value) ? "0" : item.Element("TP_DK_GBP_S_YTL").Value,
+                    jpy = string.IsNullOrEmpty(item.Element("TP_DK_CHF_S_YTL").Value) ? "0" : item.Element("TP_DK_JPY_S_YTL").Value,
                 });
                 //verilerin etiket isimlerini değiştiriyoruz yani örneğin TP_DK_USD_A değilde usd olarak 
                 XElement root = new XElement("ExchangeRates",
