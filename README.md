@@ -8,7 +8,7 @@ Bu proje, finansal verileri kullanarak bir dizi farklı grafik ve tablo yönteml
 ## Kurulum
 1. Bu repo'yu kopyalayın veya indirin.
 2. Visual Studio'yu açın ve **DovizKuruTakip.sln** dosyasını açın.
-3. Proje ana dizininde **appsettings.json** dosyasını açın ve TCMB API anahtarınızı girin.
+3. Proje ana dizininde **ExchangeRatesController.cs** dosyasını açın ve url kısmına TCMB API anahtarınızı girin.
    Uygulamayı çalıştırın.
 
 ## Kullanım
