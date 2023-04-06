@@ -31,7 +31,7 @@ namespace DovizKurApiUygulama.Controllers
         {
             var endDate = DateTime.Now.Date.ToString("dd-MM-yyyy");
             var startDate = DateTime.Now.Date.AddDays(-30).ToString("dd-MM-yyyy");
-            string url = $"https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.S.YTL-TP.DK.EUR.S.YTL-TP.DK.CHF.S.YTL-TP.DK.GBP.S.YTL-TP.DK.JPY.S.YTL&startDate={startDate}&endDate={endDate}&type=xml&key=IGWa5JleON";
+            string url = $"https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.S.YTL-TP.DK.EUR.S.YTL-TP.DK.CHF.S.YTL-TP.DK.GBP.S.YTL-TP.DK.JPY.S.YTL&startDate={startDate}&endDate={endDate}&type=xml&key=apikeyinizigirin";
             HttpResponseMessage response = await _httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
