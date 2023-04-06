@@ -13,6 +13,3 @@ Bu proje, finansal verileri kullanarak bir dizi farklı grafik ve tablo yönteml
 
 ## Kullanım
 Uygulama başlatıldığında, bir aylık döviz kuru durumlarını içeren bir tablo gösterilir. Ayrıca, döviz kurlarının en yüksek beş güne göre değerlerini gösteren bir grafik de mevcuttur. Kullanıcılar, tablo veya grafik aracılığıyla döviz kurlarını takip edebilir ve verileri güncel tutmak için sayfayı yenileyebilirler.
-
-## Katkıda Bulunma
-**Pull request**'ler hoş geldiniz. Lütfen önce herhangi bir değişiklik yapmadan önce bir tartışma konusu açın.
